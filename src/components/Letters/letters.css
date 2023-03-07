@@ -1,0 +1,51 @@
+#letters{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
+.letter {
+    padding: 0 !important;
+    display: inline-block !important;
+    font-size: 1.7rem !important;
+    width: 2.5rem !important;
+    background-color: var(--secodary) !important;
+    color: var(--text) !important;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 0 5px 1px rgb(0 0 0 / .3);
+    margin: 2px !important;
+    cursor: pointer;
+}
+.letter[aria-disabled=true] {
+    pointer-events: none;
+}
+.letter:disabled {
+    opacity: .6;
+}
+.letter button {
+    background-color: transparent;
+    border: none;
+}
+
+@media (max-width: 450px) {
+    .letter {
+        font-size: 1.8rem;
+        margin: 4px;
+        width: 3rem;
+    }
+    #letters {
+        margin-top: 30px;
+    }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+    .letter {
+        font-size: 1.8rem;
+        margin: 4px;
+        width: 3rem;
+    }
+    #letters {
+        margin-top: 30px;
+    }
+}

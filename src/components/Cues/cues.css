@@ -1,0 +1,71 @@
+#reset {
+    width: 65px;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    margin-top: 20px;
+    font-size: 2rem;
+    background: black;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    border: none;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#resetInside {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transform: translateZ(20px);
+    background: #7303c0;
+    width: 115%;
+    height: 102%;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#reset a {
+    color: white;
+    text-decoration: none;
+    transform: translateZ(20px);
+    padding: 0;
+    background: none;
+}
+
+#cues {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 20%;
+    transform: translate(0, 20%);
+    height: 100px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: var(--text);
+}
+
+@media (max-width: 450px) {
+    #cues {
+        position: relative;
+        color: var(--secodary);
+        left: 10px;
+        top: 10px;
+        font-size: 2.2rem;
+        width: fit-content;
+        height: fit-content;
+    }
+    #reset {
+        background: rgb(200 200 200);
+    }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+    #cues {
+        position: relative;
+        color: var(--secodary);
+        margin-right: auto;
+    }
+}

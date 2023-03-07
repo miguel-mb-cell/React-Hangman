@@ -1,0 +1,559 @@
+#drawing {
+    position: relative;
+    height: 200px;
+    width: 180px;
+    margin: 0 auto;
+}
+#top {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: #964B00;
+    z-index: 2;
+}
+#top::after {
+    content: '';
+    position: absolute;
+    right: -13px;
+    height: 30px;
+    width: 15px;
+    background: linear-gradient(to bottom left, #964B00, hsl(30, 100%, 20%));
+}
+#top::before {/*rope*/
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 5px;
+    height: 30px;
+    background: hsl(56, 71%, 60%);
+}
+#pilar {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: #964B00;
+}
+#pilar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -8px;
+    width: 10px;
+    height: 170px;
+    background: linear-gradient(to left, #964B00, hsl(30, 100%, 25%));
+}
+#support {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    width: 15px;
+    height: 70px;
+    transform: rotate(45deg);
+    background: #964B00;
+    z-index: 1;
+}
+#support::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -4px;
+    width: 5px;
+    height: 70px;
+    background: linear-gradient(-45deg, #964B00, hsl(30, 100%, 15%));
+    transform: skewY(-60deg);
+}
+#floor {
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    width: 120px;
+    height: 20px;
+    z-index: 1;
+}
+#trap-door1 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(#964B00, hsl(30, 100%, 20%));
+    transition: linear .3s;
+}
+#trap-door1::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: -40px;
+    height: 10px;
+    width: 45px;
+    background:  #964B00;
+    box-shadow: inset 7px 0px 5px 0px hsl(30, 100%, 15%, .5);
+}
+#trap-door2 {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(#964B00, hsl(30, 100%, 20%));
+    transition: linear .3s;
+}
+#trap-door2::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 18px;
+    height: 10px;
+    width: 45px;
+    background: #964B00;
+    box-shadow: inset -5px 0px 5px 0px hsl(30, 100%, 15%, .5);
+}
+#lever {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(hsl(0, 0%, 70%), hsl(0, 0%, 45%));
+    border-radius: 50%;
+    transform: rotate(-10deg);
+    display: flex;
+    justify-content: center;
+    border: none;
+    transition: linear .1s;
+}
+#lever::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    height: 50px;
+    width: 5px;
+    background: linear-gradient(90deg, hsl(0, 0%, 80%), hsl(0, 0%, 45%));
+    border-radius: 5px 5px 0 0;
+}
+#lever::before {
+    content: '';
+    position: absolute;
+    bottom: 65px;
+    height: 10px;
+    width: 7px;
+    border-radius: 50%;
+    background: radial-gradient(red, hsl(0, 100%, 30%));
+}
+#lever:hover {
+    cursor: pointer;
+}
+
+#lever:hover + #sweatLeverHover {
+    position: absolute;
+    top: 68px;
+    left: 60%;
+    width: 5px;
+    height: 5px;
+    background: rgb(0, 153, 255);
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+    transform: rotate(-45deg);
+    z-index: 2;
+}
+
+#doll {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#head {
+    overflow: hidden;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: inset 3px 2px 3px 0px rgb(39 39 0 /.5);
+}
+#mouth {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25px;
+    height: 15px;
+    background: rgb(10, 10, 10);
+    border-radius: 0 0 20px 20px;
+    transition: linear .2s;
+    overflow: hidden;
+    border-bottom: inset black 2px;
+}
+#mouth::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 10px;
+    aspect-ratio: 1;
+    background: red;
+    border-radius: 50%;
+    transition: .3s ease-in-out;
+}
+#head:hover #mouth {
+    width: 15px;
+    border-radius: 50%;
+}
+#head:hover #mouth::after {
+    bottom: -8px;
+}
+
+#head #eyes {
+    position: absolute;
+    top: 7px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 5px;
+}
+#head .eye {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: white;
+    transform: rotate(-50deg);
+}
+#head .eye::before {
+    content: '';
+    position: absolute;
+    background: black;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+.sweat {
+    position: absolute;
+    top: 5px;
+    right: 13px;
+    width: 5px;
+    height: 5px;
+    background: rgb(0, 153, 255);
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+    transform: rotate(-45deg);
+    transition: linear .3s;
+}
+
+#headDefeat {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border-radius: 50%;
+}
+#headDefeat::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25px;
+    height: 3px;
+    background: rgb(10, 10, 10);
+    border-radius: 20px 20px 0 0;
+}
+#headDefeat #eyesDefeat {
+    position: absolute;
+    top: 7px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 5px;
+}
+#headDefeat .eyeDefeat {
+    display: flex;
+    align-items: center;
+    height: 10px;
+    width: 2px;
+    transform: rotate(45deg);
+    background: black;
+}
+#headDefeat .eyeDefeat::before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 2px;
+    transform: rotate(-90deg);
+    background: black;
+}
+
+#headVictory {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    border-radius: 50%;
+}
+#headVictory #eyesVictory {
+    position: absolute;
+    top: 7px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 5px;
+}
+#headVictory .eyeVictory {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border-left: 2px solid rgb(20, 20, 20);
+    border-bottom: 2px solid rgb(20, 20, 20);
+    transform: rotate(130deg);
+}
+#smile {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 25px;
+    height: 15px;
+    background-color: white;
+    background-image: repeating-linear-gradient(90deg, white, white 5px, black 6px, black 5px);
+    background-size: 110%;
+    background-position: right;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    border: solid black 1px;
+}
+#smile:before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 7px;
+    border-radius: 50%;
+    border-bottom: solid 1px black;
+}
+
+#limb1 {
+    visibility: hidden;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: orange;
+    display: flex;
+    box-shadow: inset 3px 3px 5px 2px hsla(39, 100%, 25%, .5);
+}
+#limb1::before { /*head shadow*/
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: hsl(39, 100%, 30%);
+    transform: translate(-50%, 0) rotate(-30deg) skew(50deg);
+    border-radius: 50%;
+    filter: blur(3px);
+}
+#limb2 {
+    visibility: hidden;
+    position: absolute;
+    left: -10px;
+    width: 13px;
+    height: 15px;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(10deg);
+    background: rgb(216, 140, 0);
+    transition: linear .1s;
+    box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
+}
+#limb2::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 15px;
+    width: 5px;
+    height: 20px;
+    background: yellow;
+}
+.arm1 {
+    transform: rotate(140deg) !important;
+    box-shadow: inset -3px -3px 5px 1px hsla(39, 100%, 25%, .5);
+}
+
+#limb3 {
+    visibility: hidden;
+    position: absolute;
+    right: -10px;
+    width: 13px;
+    height: 15px;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-10deg);
+    background: rgb(216, 140, 0);
+    transition: linear .1s;
+    box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
+}
+#limb3::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 15px;
+    width: 5px;
+    height: 20px;
+    background: yellow;
+}
+.arm2 {
+    transform: rotate(-140deg) !important;
+    box-shadow: inset -3px -3px 5px 1px hsla(39, 100%, 25%, .5);
+}
+
+#limb4 {
+    visibility: hidden;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 10px;
+    height: 25px;
+    background: orange;
+    box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
+}
+#limb5 {
+    visibility: hidden;
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+    width: 10px;
+    height: 25px;
+    background: orange;
+    box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
+}
+
+@keyframes lookArround {
+    0% {transform: rotate(-50deg)}
+    2% {transform: rotate(-50deg)}
+    4% {transform: rotate(-50deg)}
+    6% {transform: rotate(-50deg)}
+    8% {transform: rotate(-50deg)}
+    10% {transform: rotate(-140deg)}
+    12% {transform: rotate(-140deg)}
+    14% {transform: rotate(-140deg)}
+    16% {transform: rotate(-210deg)}
+    18% {transform: rotate(-210deg)}
+    20% {transform: rotate(-200deg)}
+    22% {transform: rotate(-150deg)}
+    24% {transform: rotate(-100deg)}
+    26% {transform: rotate(-50deg)}
+    28% {transform: rotate(-50deg)}
+    30% {transform: rotate(100deg)}
+    32% {transform: rotate(100deg)}
+    34% {transform: rotate(100deg)}
+    36% {transform: rotate(-50deg)}
+    38% {transform: rotate(-50deg)}
+    40% {transform: rotate(-50deg)}
+    42% {transform: rotate(-50deg)}
+    44% {transform: rotate(-50deg)}
+    46% {transform: rotate(-50deg)}
+    48% {transform: rotate(-50deg)}
+    50% {transform: rotate(-50deg)}
+    52% {transform: rotate(-50deg)}
+    54% {transform: rotate(-50deg)}
+    56% {transform: rotate(-50deg)}
+    58% {transform: rotate(-50deg)}
+    60% {transform: rotate(-50deg)}
+    62% {transform: rotate(-100deg)}
+    64% {transform: rotate(-100deg)}
+    66% {transform: rotate(-200deg)}
+    68% {transform: rotate(-200deg)}
+    70% {transform: rotate(-200deg)}
+    72% {transform: rotate(-100deg)}
+    74% {transform: rotate(-100deg);}
+    76% {transform: rotate(-50deg);}
+    78% {transform: rotate(-50deg)}
+    80% {transform: rotate(-130deg)}
+    82% {transform: rotate(-50deg)}
+    84% {transform: rotate(-50deg)}
+    86% {transform: rotate(-100deg)}
+    88% {transform: rotate(-100deg)}
+    90% {transform: rotate(-100deg)}
+    92% {transform: rotate(-100deg)}
+    94% {transform: rotate(-100deg)}
+    96% {transform: rotate(-50deg)}
+    98% {transform: rotate(-50deg)}
+    100% {transform: rotate(-50deg)}
+}
+@keyframes blink {
+    0% {top: -200%}
+    5% {top: -200%}
+    10% {top: -200%}
+    15% {top: -200%}
+    20% {top: -200%}
+    25% {top: -200%}
+    30% {top: -200%}
+    35% {top: -200%}
+    40% {top: -200%}
+    45% {top: -200%}
+    50% {top: -200%}
+    55% {top: -200%}
+    60% {top: -200%}
+    65% {top: -200%}
+    70% {top: -200%}
+    75% {top: -200%}
+    80% {top: -200%}
+    85% {top: -200%}
+    90% {top: -200%}
+    95% {top: 15%}
+    100% {top: -200%}
+}
+@media (max-width: 450px) {
+    #head, #limb1, #limb2, #limb3, #limb4, #limb5 {
+        box-shadow: none;
+    }
+    #limb1::before {/*head shadow*/
+        display: none;
+    }
+    #head .eye {
+        animation: lookArround infinite 50s;
+    }
+    #head #eyes::after {
+        content: '';
+        position: absolute;
+        top: -200;
+        width: 100%;
+        height: 200%;
+        background: yellow;
+        animation: blink infinite 10s
+    }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+    #drawing {
+        margin: 0 30px;
+    }
+    #head {
+        box-shadow: none;
+    }
+    #head .eye {
+        animation: lookArround infinite 50s;
+    }
+    #head #eyes::after {
+        content: '';
+        position: absolute;
+        top: -200;
+        width: 100%;
+        height: 200%;
+        background: yellow;
+        animation: blink infinite 10s
+    }
+}

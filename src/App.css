@@ -1,0 +1,53 @@
+:root {
+  --base: linear-gradient(to top, #03001e, #7303c0);
+  --primary: #F8F1F1;
+  --secodary: #FFB830;
+  --text: #964B00;
+
+  --result-primary: hsl(276, 97%, 60%);
+  --result-secondary: hsl(276, 97%, 30%);
+  --result-tertiary: hsl(276, 97%, 35%);
+  --result-quaternary: hsl(276, 97%, 40%);
+  --result-quinary: hsl(276, 97%, 45%);
+}
+@font-face {
+  font-family: pacifico;
+  src: url(/public/Pacifico.ttf);
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: pacifico;
+  min-height: 100vh;
+  background: var(--base);
+}
+button {
+  font-family: pacifico;
+}
+
+@media (max-width: 450px) {
+  body {
+      overflow-y: scroll !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+  body {
+    overflow-y: scroll !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+}

@@ -1,0 +1,13 @@
+#title-id {
+    position: relative;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+.title-class {
+    stroke-linecap: square;
+    fill-opacity: 0;
+    transition: fill-opacity 1s;
+}
+.finished {
+    fill-opacity: 1;
+}
