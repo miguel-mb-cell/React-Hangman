@@ -1,22 +1,103 @@
 .navbarContainer nav {
-    position: relative;
-    line-height: 60px;
+	position: absolute;
+    margin: 0;
+    padding: 0 30px;
+    height: 100vh;
+	left: -18rem;
+	background-image: linear-gradient(to right, var(--secondary) 55%, hsl(30, 100%, 20%));
+    box-shadow: 0 1px 5px 1px rgb(0 0 0 / .3);
+    border-radius: 0 50% 50% 0;
+    border-right: solid var(--primary) 2px;
 }
+.openSideNav nav {
+    animation: navbarMoveIn ease-in 1 .5s,
+    radiusMoveIn linear 1 0s .55s,
+    spring linear 1 .15s .58s;
+    animation-fill-mode: forwards;
+}
+.closeSideNav nav {
+    animation: navbarMoveOut ease-in 1 .5s, 
+    radiusMoveOut linear 1 .5s .5s;
+}
+@keyframes navbarMoveOut {
+    0% {left: -1rem; border-radius: 0;}
+    50% {left: -1rem; border-radius: 0;}
+    100% {left: -18rem; border-radius: 0;}
+}
+@keyframes radiusMoveOut {
+    0% {border-radius: 0;}
+    50% {border-radius: 0;}
+    100% {border-radius: 0 50% 50% 0;}
+}
+@keyframes navbarMoveIn {
+    0% {left: -18rem;}
+    50% {left: -18rem;}
+    100% {left: -1rem;}
+}
+@keyframes radiusMoveIn {
+    0% {border-radius: 0 50% 50% 0;}
+    50% {border-radius: 0 50% 50% 0;}
+    100% {border-radius: 0;}
+}
+@keyframes spring {
+    0% {transform: translateX(-1rem);}
+    20% {transform: translateX(1rem);}
+    40% {transform: translateX(-1rem);}
+    60% {transform: translateX(1rem);}
+    80% {transform: translateX(-1rem);}
+    100% {transform: translateX(-.5rem);}
+}
+
 .navbarContainer nav ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 150px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.navbarContainer #handle {
+    position: absolute;
+    right: -20px;
+    top: 50vh;
+    transform: translateY(-50%);
+    background-color: hsl(30, 100%, 20%);
+    border-radius: 50%;
+    z-index: 1;
+}
+.navbarContainer #handle_border {
+    content: '';
+    position: absolute;
+    right: -22px;
+    top: 50vh;
+    transform: translateY(-50%);
+    width: 52px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: solid 2px var(--primary);
+    z-index: -1;
 }
 .navbarContainer nav li {
-    list-style: none;
+    position: relative;
+    height: 0;
+    display: flex;
+    align-items: center;
 }
-.navbarContainer nav a {
-    margin: 0 20px;
-    text-decoration: none;
-    color: var(--primary);
-    font-size: 2.5rem;
+
+.navbarContainer nav li:nth-child(1) {
+    transition: linear .5s;
 }
-.navbarContainer nav a:hover {
-    text-decoration: underline var(--primary) 4px;
-    text-underline-offset: 5px;
+.navbarContainer nav li:nth-child(2) {
+    transition: linear .6s;
+}
+.navbarContainer nav li:nth-child(3) {
+    transition: linear .7s;
+}
+.navbarContainer nav li:nth-child(4) {
+    transition: linear .8s;
 }
 
 #hamburger {
@@ -24,14 +105,41 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 
-@media (max-width: 450px) and (orientation: portrait) { 
+.canvas {
+    position: relative !important;
+    width: 150px !important;
+    height: 150px !important;
+    cursor: grab;
+}
+.canvas:active {
+    cursor: grabbing;
+}
+
+@media (max-width: 450px) and (orientation: portrait) {
+    .navbarContainer nav a {
+        margin: 0 auto;
+    }
+    .canvas {
+        width: 100% !important;
+        bottom: 0;
+    }
     .navbarContainer nav {
+        position: relative;
         margin: 0;
         height: 100%;
         width: 100%;
+        border: none;
+    }
+    .navbarContainer nav:hover {
+        animation: none;
+    }
+    .navbarContainer nav:after {
+        display: none;
+        height: 0;
+        width: 0;
     }
     .navbarContainer nav ul {
         position: fixed;
@@ -40,16 +148,12 @@
         background: none;
         height: 100%;
         width: 100%;
-        flex-direction: column;
         margin: 0;
         padding: 0;
-        z-index: 4;
         transition: ease-out .2s;
         transform: translateX(-100%);
-    }
-    .navbarContainer nav a {
-        color: var(--secodary);
-        font-size: 4rem;
+        justify-content: space-evenly;
+        z-index: 2;
     }
     .navbarContainer nav li {
         margin: 0;
@@ -59,27 +163,9 @@
         border: solid #39005f 3px;
         width: 100%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
-    .navbarContainer nav li:nth-child(1) {
-        transition: linear .5s;
-    }
-    .navbarContainer nav li:nth-child(2) {
-        transition: linear .6s;
-    }
-    .navbarContainer nav li:nth-child(3) {
-        transition: linear .7s;
-    }
-    .navbarContainer nav li:nth-child(4) {
-        transition: linear .8s;
-    }
-    .navbarContainer nav li:nth-child(5) {
-        transition: linear .9s;
-    }
-    #nav-options[data-visible="true"], nav li[data-visible="true"] {
-        transform: translateX(0);
+    #handle {
+        visibility: hidden;
     }
     #hamburger {
         position: fixed !important;
@@ -91,9 +177,16 @@
 
 @media (max-height: 450px) and (orientation: landscape) {
     .navbarContainer nav {
+        position: relative;
         margin: 0;
         height: 100%;
         width: 100%;
+    }
+    .navbarContainer nav:hover {
+        animation: none;
+    }
+    .navbarContainer nav:after {
+        display: none;
     }
     .navbarContainer nav ul {
         position: fixed;
@@ -102,46 +195,24 @@
         background: none;
         height: 100%;
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
         margin: 0;
         padding: 0;
-        z-index: 4;
-        transition: ease-out .2s;
-        transform: translateX(-100%);
-    }
-    .navbarContainer nav a {
-        color: var(--secodary);
-        font-size: 4rem;
+        transition: ease-in .2s;
+        transform: translateY(-100%);
+        z-index: 2;
     }
     .navbarContainer nav li {
         margin: 0;
         padding: 0;
-        transform: translateX(-200%);
+        transform: translateY(-200%);
         background: #39005f;
         border: solid #39005f 3px;
         width: 100%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
-    .navbarContainer nav li:nth-child(1) {
-        transition: linear .5s;
-    }
-    .navbarContainer nav li:nth-child(2) {
-        transition: linear .6s;
-    }
-    .navbarContainer nav li:nth-child(3) {
-        transition: linear .7s;
-    }
-    .navbarContainer nav li:nth-child(4) {
-        transition: linear .8s;
-    }
-    .navbarContainer nav li:nth-child(5) {
-        transition: linear .9s;
-    }
-    #nav-options[data-visible="true"], nav li[data-visible="true"] {
-        transform: translateX(0);
+    #handle {
+        visibility: hidden;
     }
     #hamburger {
         position: fixed !important;

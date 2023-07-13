@@ -1,18 +1,17 @@
 :root {
-  --base: linear-gradient(to top, #03001e, #7303c0);
-  --primary: #F8F1F1;
-  --secodary: #FFB830;
-  --text: #964B00;
+  --base: linear-gradient(to top, #0b0072, #7303c0);
+  --primary: #ffb62e;
+  --secondary: #4d2600;
 
-  --result-primary: hsl(276, 97%, 60%);
-  --result-secondary: hsl(276, 97%, 30%);
-  --result-tertiary: hsl(276, 97%, 35%);
-  --result-quaternary: hsl(276, 97%, 40%);
-  --result-quinary: hsl(276, 97%, 45%);
+  --result-primary: hsl(39, 100%, 50%);
+  --result-secondary: hsl(39, 100%, 30%);
+  --result-tertiary: hsl(39, 100%, 35%);
+  --result-quaternary: hsl(39, 100%, 40%);
+  --result-quinary: hsl(39, 100%, 45%);
 }
 @font-face {
   font-family: pacifico;
-  src: url(/public/Pacifico.ttf);
+  src: url(/public/Sdballoondemo-RpOZl.ttf);
 }
 * {
   -webkit-tap-highlight-color: transparent;
@@ -27,15 +26,58 @@ body {
   padding: 0;
   overflow: hidden;
   font-family: pacifico;
-  min-height: 100vh;
+  height: 100vh;
   background: var(--base);
 }
 button {
   font-family: pacifico;
 }
+a {
+  text-decoration: none;
+}
 
-@media (max-width: 450px) {
+.title:hover + #cursor {
+  width: 50px;
+  z-index: 3;
+  visibility: visible;
+}
+#cursor {
+  position: fixed;
+  width: 0px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgb(180, 200, 0);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transition: linear .07s;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cursor::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: solid rgb(180, 200, 0);
+  mix-blend-mode: difference;
+}
+#cursor::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: solid rgb(180, 200, 0);
+  mix-blend-mode: difference;
+}
+
+@media (max-width: 450px) and (orientation: portrait) {
   body {
+      height: 100%;
       overflow-y: scroll !important;
       display: flex;
       flex-direction: column;
@@ -45,6 +87,7 @@ button {
 
 @media (max-height: 450px) and (orientation: landscape) {
   body {
+    height: 100%;
     overflow-y: scroll !important;
     display: flex;
     flex-direction: column;

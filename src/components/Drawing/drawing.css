@@ -8,8 +8,8 @@
     position: relative;
     width: 100%;
     height: 30px;
-    background: #964B00;
-    z-index: 2;
+    background: var(--secondary);
+    z-index: -1;
 }
 #top::after {
     content: '';
@@ -17,7 +17,7 @@
     right: -13px;
     height: 30px;
     width: 15px;
-    background: linear-gradient(to bottom left, #964B00, hsl(30, 100%, 20%));
+    background: linear-gradient(to bottom left, var(--secondary), hsl(30, 100%, 20%));
 }
 #top::before {/*rope*/
     content: '';
@@ -26,7 +26,7 @@
     left: 50%;
     transform: translate(-50%);
     width: 5px;
-    height: 30px;
+    height: 35px;
     background: hsl(56, 71%, 60%);
 }
 #pilar {
@@ -34,7 +34,7 @@
     top: 0;
     width: 30px;
     height: 100%;
-    background: #964B00;
+    background: var(--secondary);
 }
 #pilar::after {
     content: '';
@@ -43,7 +43,7 @@
     right: -8px;
     width: 10px;
     height: 170px;
-    background: linear-gradient(to left, #964B00, hsl(30, 100%, 25%));
+    background: linear-gradient(to left, var(--secondary), hsl(30, 100%, 25%));
 }
 #support {
     position: absolute;
@@ -52,7 +52,7 @@
     width: 15px;
     height: 70px;
     transform: rotate(45deg);
-    background: #964B00;
+    background: var(--secondary);
     z-index: 1;
 }
 #support::after {
@@ -62,7 +62,7 @@
     right: -4px;
     width: 5px;
     height: 70px;
-    background: linear-gradient(-45deg, #964B00, hsl(30, 100%, 15%));
+    background: linear-gradient(-45deg, var(--secondary), hsl(30, 100%, 15%));
     transform: skewY(-60deg);
 }
 #floor {
@@ -78,7 +78,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: radial-gradient(#964B00, hsl(30, 100%, 20%));
+    background: radial-gradient(var(--secondary), hsl(30, 100%, 20%));
     transition: linear .3s;
 }
 #trap-door1::after {
@@ -88,7 +88,7 @@
     right: -40px;
     height: 10px;
     width: 45px;
-    background:  #964B00;
+    background:  var(--secondary);
     box-shadow: inset 7px 0px 5px 0px hsl(30, 100%, 15%, .5);
 }
 #trap-door2 {
@@ -97,7 +97,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: radial-gradient(#964B00, hsl(30, 100%, 20%));
+    background: radial-gradient(var(--secondary), hsl(30, 100%, 20%));
     transition: linear .3s;
 }
 #trap-door2::after {
@@ -107,13 +107,13 @@
     right: 18px;
     height: 10px;
     width: 45px;
-    background: #964B00;
+    background: var(--secondary);
     box-shadow: inset -5px 0px 5px 0px hsl(30, 100%, 15%, .5);
 }
 #lever {
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -15px;
     width: 15px;
     height: 15px;
     background: radial-gradient(hsl(0, 0%, 70%), hsl(0, 0%, 45%));
@@ -122,6 +122,7 @@
     display: flex;
     justify-content: center;
     border: none;
+    transform: rotate(-20deg);
     transition: linear .1s;
 }
 #lever::after {
@@ -189,7 +190,7 @@
     border-radius: 0 0 20px 20px;
     transition: linear .2s;
     overflow: hidden;
-    border-bottom: inset black 2px;
+    border-bottom: solid black 2px;
 }
 #mouth::after {
     content: '';
@@ -352,23 +353,12 @@
     background: orange;
     display: flex;
     box-shadow: inset 3px 3px 5px 2px hsla(39, 100%, 25%, .5);
+    border-radius: 5px 5px 0 0;
 }
-#limb1::before { /*head shadow*/
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    width: 20px;
-    aspect-ratio: 1;
-    background-color: hsl(39, 100%, 30%);
-    transform: translate(-50%, 0) rotate(-30deg) skew(50deg);
-    border-radius: 50%;
-    filter: blur(3px);
-}
-#limb2 {
+#limb2 { /*sleeve*/
     visibility: hidden;
     position: absolute;
-    left: -10px;
+    left: -11px;
     width: 13px;
     height: 15px;
     border-radius: 50% 50% 0 0;
@@ -377,7 +367,7 @@
     transition: linear .1s;
     box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
 }
-#limb2::before {
+#limb2::before { /*arm*/
     content: '';
     position: absolute;
     left: 50%;
@@ -386,6 +376,7 @@
     width: 5px;
     height: 20px;
     background: yellow;
+    border-radius: 0 0 1px 1px;
 }
 .arm1 {
     transform: rotate(140deg) !important;
@@ -413,6 +404,7 @@
     width: 5px;
     height: 20px;
     background: yellow;
+    border-radius: 0 0 1px 1px;
 }
 .arm2 {
     transform: rotate(-140deg) !important;
@@ -428,6 +420,7 @@
     height: 25px;
     background: orange;
     box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
+        border-radius: 0 0 1px 1px;
 }
 #limb5 {
     visibility: hidden;
@@ -438,6 +431,7 @@
     height: 25px;
     background: orange;
     box-shadow: inset 3px 3px 5px 1px hsla(39, 100%, 25%, .5);
+        border-radius: 0 0 1px 1px;
 }
 
 @keyframes lookArround {
@@ -517,6 +511,9 @@
     100% {top: -200%}
 }
 @media (max-width: 450px) {
+    #drawing {
+        transform: translate(0);
+    }
     #head, #limb1, #limb2, #limb3, #limb4, #limb5 {
         box-shadow: none;
     }
@@ -535,11 +532,16 @@
         background: yellow;
         animation: blink infinite 10s
     }
+    #smile {
+        background-image: repeating-linear-gradient(90deg, black 1.4px, white 3px, white 6px, black 3px, black 3px);
+        background-size: 130%;
+    }
 }
 
 @media (max-height: 450px) and (orientation: landscape) {
     #drawing {
         margin: 0 30px;
+        transform: translate(0);
     }
     #head {
         box-shadow: none;
@@ -555,5 +557,9 @@
         height: 200%;
         background: yellow;
         animation: blink infinite 10s
+    }
+    #smile {
+        background-image: repeating-linear-gradient(90deg, black 1.4px, white 3px, white 6px, black 3px, black 3px);
+        background-size: 130%;
     }
 }

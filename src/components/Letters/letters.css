@@ -1,21 +1,21 @@
 #letters{
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    color: var(--secondary) !important;
 }
 .letter {
     padding: 0 !important;
     display: inline-block !important;
-    font-size: 1.7rem !important;
-    width: 2.5rem !important;
-    background-color: var(--secodary) !important;
-    color: var(--text) !important;
+    min-width: 2.7rem !important;
+    background-color: var(--primary) !important;
+    color: var(--secondary) !important;
     border: none;
     border-radius: 2px;
     box-shadow: 0 0 5px 1px rgb(0 0 0 / .3);
-    margin: 2px !important;
-    cursor: pointer;
+    margin: 3px !important;
 }
 .letter[aria-disabled=true] {
     pointer-events: none;
@@ -26,6 +26,10 @@
 .letter button {
     background-color: transparent;
     border: none;
+    color: var(--secondary) !important;
+    font-size: 3rem;
+    padding: 4px;
+    cursor: pointer;
 }
 
 @media (max-width: 450px) {
@@ -35,7 +39,7 @@
         width: 3rem;
     }
     #letters {
-        margin-top: 30px;
+        display: inline-block;
     }
 }
 
@@ -46,6 +50,6 @@
         width: 3rem;
     }
     #letters {
-        margin-top: 30px;
+        display: inline-block;
     }
 }

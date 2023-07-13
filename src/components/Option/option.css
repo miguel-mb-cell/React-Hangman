@@ -4,19 +4,20 @@
     display: flex;
     justify-content: space-evenly;
     z-index: 1;
-    margin: 5px 0;
+    margin-top: 50px;
 }
 .optionBox {
     padding: 0 !important;
     border: none;
+    border-radius: 2px;
     position: relative;
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    background: black !important;
+    background: hsl(0, 0%, 80%) !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px !important;
+    width: 180px !important;
     height: 60px !important;
 }
 .optionBox[aria-disabled=true] {
@@ -26,45 +27,46 @@
 .optionBox:hover {
     cursor: pointer;
 }
+.optionBox:hover .optionText{
+    font-size: 2.6rem;
+}
 .optionInside {
     transform-style: preserve-3d;
     transform: perspective(1000px);
-    transform: translateZ(20px);
-    background: var(--secodary);
+    transform: translateZ(30px);
+    background: var(--primary);
     width: 115%;
     height: 102%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 2px;
 }
 .optionInside:hover, .optionText:hover {
     cursor: pointer;
 }
 .optionText {
     padding: 0;
-    transform: translateZ(20px);
+    transform: translateZ(50px);
     background: none;
-    color: var(--text);
-    font-size: 2.2rem;
+    color: var(--secondary);
+    font-size: 2.4rem;
     text-decoration: none;
     border: none;
+    transition: .2s;
 }
 
 @media (max-width: 450px) {
     #options {
         flex-direction: column;
         align-items: center;
-        height: 60%;
+        height: 70%;
     }
     .optionBox {
         height: 75px !important;
-        width: 150px !important;
+        width: 180px !important;
     }
     .optionText {
         font-size: 2.5rem;
-    }
-
-    a[aria-disabled] {
-        pointer-events: all;
     }
 }

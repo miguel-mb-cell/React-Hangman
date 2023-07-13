@@ -16,6 +16,7 @@
 
 .firework {
     display: none;
+    margin: 0;
     position: absolute;
     bottom: 10vh;
 }
@@ -481,6 +482,6 @@
 }
 @media (max-height: 450px) and (orientation: landscape) {
   .firework {
-    top: 150vh !important;
+    top: 140vh !important;
   }
 }

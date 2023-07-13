@@ -1,32 +1,35 @@
 import './option.css'
 import Tilt from '../../Tilt'
-import library from '../../wordLibrary'
+import Library from '../../wordLibrary'
 
 const Option = (props) => {
 
-    const word = library[props.category][Math.floor(Math.random() * props.category.length)]
+    let word = Library[props.category][Math.floor(Math.random() * Library[props.category].length)]
 
     const selectOption = () => {
         props.setword(word)
         props.setoption(true) //disable option buttons
+        props.setletters(false) //enable letters
         props.setcue(word.replace(/\S/g, "_").split(""))
+        props.setTitle(props.category)
     }
 
     return(
         <Tilt className="optionBox"
-        options={{scale: 1.3, max: 25, speed: 500, reset: false}}
+        options={{scale: 1.3, max: 25, speed: 500}}
         aria-disabled={props.option}>
 
-            <button 
+            <a  href='#content'
                 className="optionInside" 
-                onClick={() => {selectOption(); props.scrollFunc()}} 
+                onClick={() => selectOption()} 
                 disabled={props.option}>
 
-                    <button className='optionText' disabled={props.option}>
+                    <p
+                    className='optionText' 
+                    aria-disabled={props.option}>
                         {props.category}
-                    </button>
-                    
-            </button>
+                    </p>
+            </a>
 
         </Tilt>
     )

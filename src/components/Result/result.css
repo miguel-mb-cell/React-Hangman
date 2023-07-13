@@ -80,6 +80,15 @@
   }
 }
 
+#result {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
 
 #victory {
     text-shadow: 2px 2px 0 var(--result-secondary), 4px 4px 0 var(--result-tertiary),
@@ -109,8 +118,8 @@
   font-family: 'Titan One'cursive;
   font-size: 3rem;
   color: var(--result-primary);
-  text-shadow: 0 1px 0 var(--result-primary),
-      0 2px 0 var(--result-quaternary),
+  text-shadow: 0 1px 0 var(--result-secondary),
+      0 2px 0 var(--result-secondary),
       0 3px 0 var(--result-primary),
       0 4px 0 var(--result-primary),
       0 5px 0 transparent,
@@ -179,8 +188,8 @@
 }
 
 #leverReset {
-  font-size: 2rem;
-  color: var(--secodary);
+  font-size: 3rem;
+  color: var(--primary);
 }
 
 @media (max-width: 450px) {
@@ -189,11 +198,11 @@
     }
     #defeat {
         position: relative;
-        color: var(--secodary);
+        color: var(--primary);
         text-align: center;
     }
     #defeat span {
-      color: var(--secodary);
+      color: var(--primary);
       text-shadow: 0 1px 0 hsl(39, 100%, 25%),
           0 2px 0 hsl(39, 100%, 35%),
           0 3px 0 hsl(39, 100%, 40%),
@@ -212,11 +221,14 @@
 }
 
 @media (max-height: 450px) and (orientation: landscape) {
+  #result {
+    margin-top: 0;
+  }
   #defeat {
-    color: var(--secodary);
+    color: var(--primary);
   }
   #defeat span {
-    color: var(--secodary);
+    color: var(--primary);
     text-shadow: 0 1px 0 hsl(39, 100%, 25%),
         0 2px 0 hsl(39, 100%, 35%),
         0 3px 0 hsl(39, 100%, 40%),
@@ -227,5 +239,8 @@
         0 8px 0 transparent,
         0 9px 0 transparent,
         0 10px 10px rgba(0, 0, 0, 0.4);
+  }
+  #leverReset {
+    font-size: 2.8rem;
   }
 }

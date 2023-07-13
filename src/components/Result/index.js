@@ -6,9 +6,6 @@ const Result = ({result, word}) => {
 
     const answerArr = [<span>"</span>];
 
-    /*const answerArr = answer.split('').map(letter => {
-        return <span className='defeatLetter' key={letter}>{letter}</span>
-    });*/
     for (let i = 0; i < answer.length; i++) {
         answerArr.push(<span className='defeatLetter'>{answer[i]}</span>)
     }

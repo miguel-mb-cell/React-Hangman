@@ -1,13 +1,41 @@
-#title-id {
-    position: relative;
-    margin-left: 50%;
-    transform: translate(-50%);
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 3;
+    padding: 15px;
+    cursor: none;
 }
-.title-class {
-    stroke-linecap: square;
-    fill-opacity: 0;
-    transition: fill-opacity 1s;
+.title ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 5rem;
+    color: var(--primary);
+    padding: 0;
+    margin: 0;
 }
-.finished {
-    fill-opacity: 1;
+.title li {
+    transition: linear .05s;
+}
+.title li:hover {
+    transform: translateY(-5px) rotate(20deg);
+}
+.title li:hover + li {
+    transform: translateY(5px) rotate(-10deg);
+}
+
+@media (max-width: 450px) and (orientation: portrait) {
+    .title {
+        top: 50px;
+        z-index: 1;
+    }
+    .title ul {
+        font-size: 4rem;
+    }
+}
+
+@media (max-height: 450px) and (orientation: landscape) {
+    .title {
+        z-index: 1;
+    }
 }

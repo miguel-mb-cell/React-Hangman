@@ -1,9 +1,6 @@
 import './cues.css'
-import Tilt from '../../Tilt'
 
 const Cues = (props) => {
-
-    const refresh = () => window.location.reload(true)
 
     if (!(props.cue.includes('_'))){
         
@@ -16,7 +13,6 @@ const Cues = (props) => {
             <div id="rightGuesses">Select an option</div>
             }
             <div id="wrongGuesses">Wrong guesses:{props.badguess}</div>
-            <Tilt id="reset" onClick={refresh}><div id="resetInside"><a href="github.com">Reset</a></div></Tilt>
         </div>
     )
 }

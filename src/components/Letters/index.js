@@ -1,6 +1,5 @@
 import './letters.css'
 import Tilt from '../../Tilt'
-import {useEffect} from 'react'
 
 const Letters = (props) => {
 
@@ -8,15 +7,7 @@ const Letters = (props) => {
     let aplphabetArr = alphabetStr.split('')
 
     let localMistakes = props.mistakes
-
-    useEffect(() => {
-        if (props.word !== '') { //enable click after option is selected
-            props.setletters(false)
-        }
-    })
-
-    console.log(props.word)
-    
+        
     function guess(letter) {
         if (props.word.includes(letter)) {
             for (let i = 0; i < props.word.length; i++) {
@@ -39,7 +30,7 @@ const Letters = (props) => {
         {aplphabetArr.map(letter => 
             <Tilt className='letter'
             key={letter}
-            options={{scale: 1.2, max: 35, perspective: 150, reset: false}}
+            options={{scale: 1.2, max: 35, perspective: 150}}
             aria-disabled={props.letters}>
                 <button onClick={ () => {guess(letter)}} disabled={props.letters} id={letter}>
                     {letter}
