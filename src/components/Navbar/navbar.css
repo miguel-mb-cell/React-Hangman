@@ -167,6 +167,9 @@
     #handle {
         visibility: hidden;
     }
+    #handle_border{
+        visibility: hidden;
+    }
     #hamburger {
         position: fixed !important;
         top: 0;
@@ -212,6 +215,9 @@
         height: 100%;
     }
     #handle {
+        visibility: hidden;
+    }
+    #handle_border{
         visibility: hidden;
     }
     #hamburger {

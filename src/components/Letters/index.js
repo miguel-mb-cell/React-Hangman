@@ -7,7 +7,9 @@ const Letters = (props) => {
     let aplphabetArr = alphabetStr.split('')
 
     let localMistakes = props.mistakes
-        
+    
+    console.log(props.word)
+
     function guess(letter) {
         if (props.word.includes(letter)) {
             for (let i = 0; i < props.word.length; i++) {

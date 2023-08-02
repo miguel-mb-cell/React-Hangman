@@ -19,6 +19,7 @@
     margin: 0;
     position: absolute;
     bottom: 10vh;
+    z-index: -1;
 }
   
 #firework1,

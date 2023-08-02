@@ -15,7 +15,7 @@ const Container = (props) => {
     const [letters, setletters] = useState(true)
 
     const [word, setword] = useState('') //set at Option
-
+    
     const [cue, setcue] = useState('') //set at Option, updated at Letters
 
     const [badguess, setbadguess] = useState('') //set at Letters
